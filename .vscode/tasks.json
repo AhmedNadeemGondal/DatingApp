@@ -1,0 +1,71 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "API",
+            "type": "shell",
+            "command": "cd API && dotnet watch",
+            "isBackground": true,
+            "problemMatcher": [],
+            "presentation": {
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "close": false
+            },
+            "options": {
+                "shell": {
+                    "args": [
+                        "-NoExit"
+                    ]
+                }
+            }
+        },
+        {
+            "label": "Client",
+            "type": "shell",
+            "command": "cd client && ng serve",
+            "isBackground": true,
+            "problemMatcher": [],
+            "presentation": {
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "close": false
+            },
+            "options": {
+                "shell": {
+                    "args": [
+                        "-NoExit"
+                    ]
+                }
+            }
+        },
+        {
+            "label": "CLI Client",
+            "type": "shell",
+            "command": "cd client; Write-Host 'Ready in client folder...'",
+            "isBackground": true,
+            "problemMatcher": [],
+            "presentation": {
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "close": false
+            },
+            "options": {
+                "shell": {
+                    "args": [
+                        "-NoExit"
+                    ]
+                }
+            }
+        },
+        {
+            "label": "Start All",
+            "dependsOn": [
+                "API",
+                "Client",
+                "CLI Client"
+            ],
+            "dependsOrder": "parallel"
+        }
+    ]
+}
