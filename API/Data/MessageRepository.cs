@@ -3,6 +3,7 @@ using API.DTOs;
 using API.Entities;
 using API.Extensions;
 using API.Helpers;
+using API.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Data;
@@ -90,10 +91,5 @@ public class MessageRepository(AppDbContext context) : IMessageRepository
         await context.Connections
         .Where(x => x.ConnectionId == ConnectionId)
         .ExecuteDeleteAsync();
-    }
-
-    public async Task<bool> SaveAllAsync()
-    {
-        return await context.SaveChangesAsync() > 0;
     }
 }

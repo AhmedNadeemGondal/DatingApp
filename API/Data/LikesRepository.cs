@@ -60,36 +60,4 @@ public class LikesRepository(AppDbContext context) : ILikesRepository
         return await PaginationHelper.CreateAsync(result,
         likeParams.PageNumber, likeParams.PageSize);
     }
-    // public async Task<IReadOnlyList<Member>> GetMemberLikes(string predicate, string memberId)
-    // {
-    //     var query = context.Likes.AsQueryable();
-
-    //     switch (predicate)
-    //     {
-    //         case "liked":
-    //             return await query
-    //             .Where(x => x.SourceMemberId == memberId)
-    //             .Select(x => x.TargetMember)
-    //             .ToListAsync();
-    //         case "likedBy":
-    //             return await query
-    //             .Where(x => x.TargetMemberId == memberId)
-    //             .Select(x => x.SourceMember)
-    //             .ToListAsync();
-
-    //         default: //mutual
-    //             var likeIds = await GetCurrentMemberLikeIds(memberId);
-    //             return await query
-    //             .Where(x => x.TargetMemberId == memberId
-    //             && likeIds.Contains(x.SourceMemberId))
-    //             .Select(x => x.SourceMember)
-    //             .ToListAsync();
-    //     }
-    // }
-
-    public async Task<bool> SaveAllChanges()
-    {
-        return await context.SaveChangesAsync() > 0;
-    }
-
 }
