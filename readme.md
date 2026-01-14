@@ -7,11 +7,6 @@ DatingApp is a full-stack social networking application featuring real-time mess
 [View Live Azure Deployment](https://datingappnetdemo.azurewebsites.net)
 *Hosted on Azure (Free Tier). Initial load may take a moment due to cold start.*
 
-## GitHub Repository
-
-[Project Source Code](https://github.com/AhmedNadeemGondal/DatingApp)
-
----
 
 ## Features
 
