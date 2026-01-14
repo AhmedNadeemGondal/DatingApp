@@ -1,0 +1,31 @@
+<!-- @if (isVisible) { -->
+  <div class="modal modal-open backdrop-blur-sm" role="dialog">
+    <div class="modal-box border border-primary/20 shadow-2xl">
+      <h3 class="text-2xl font-bold text-primary">Welcome to DatingApp!</h3>
+      
+      <div class="py-4 space-y-4">
+        <p class="text-base-content/80 text-sm">This is a .NET & Angular showcase site.</p>
+        <p class="text-base-content/80 text-sm">You can either create an account or use the following demo credentials to browse functionality.</p>
+        
+        <div class="bg-base-200 p-4 rounded-xl border border-base-300">
+          <p class="text-xs font-bold opacity-50 uppercase tracking-widest mb-2">Demo Credentials</p>
+                    <p><strong>Users : </strong> lisa&#64;test.com, todd&#64;test.com</p>
+          <p><strong>Admin:</strong> admin&#64;test.com</p>
+          
+          <div class="divider my-1"></div>
+<p><strong>Password : </strong> <code class="text-secondary font-mono">Pa$$w0rd</code></p>
+        </div>
+
+        <p class="text-sm">
+          <a href="https://github.com/AhmedNadeemGondal/DatingApp" target="_blank" class="link link-primary no-underline hover:underline">
+            View GitHub Repository
+          </a>
+        </p>
+      </div>
+
+      <div class="modal-action">
+        <button (click)="closeModal()" class="btn btn-primary px-8">Got it!</button>
+      </div>
+    </div>
+  </div>
+<!-- } -->

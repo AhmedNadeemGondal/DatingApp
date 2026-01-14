@@ -6,14 +6,16 @@ import { ToastService } from '../../core/services/toast-service';
 import { themes } from '../theme';
 import { BusyService } from '../../core/services/busy-service';
 import { HasRole } from '../../shared/directives/has-role';
+import { WelcomeModal } from "../../features/welcome-modal/welcome-modal";
 
 @Component({
   selector: 'app-nav',
-  imports: [FormsModule, RouterLink, RouterLinkActive, HasRole],
+  imports: [FormsModule, RouterLink, RouterLinkActive, HasRole, WelcomeModal],
   templateUrl: './nav.html',
   styleUrl: './nav.css'
 })
 export class Nav implements OnInit {
+
   protected accountService = inject(AccountService)
   protected bustyService = inject(BusyService)
   private router = inject(Router)
@@ -22,9 +24,17 @@ export class Nav implements OnInit {
   protected selectedTheme = signal<string>(localStorage.getItem('theme') || 'light')
   protected themes = themes
   protected loading = signal(false)
+  protected showInfoModal = signal<boolean>(true)
+
+
 
   ngOnInit(): void {
     document.documentElement.setAttribute('data-theme', this.selectedTheme())
+    if (localStorage.getItem('hasSeenWelcomeModal')) {
+      this.showInfoModal.set(false)
+    } else {
+      localStorage.setItem('hasSeenWelcomeModal', 'true');
+    }
   }
 
   handleselectedTheme(theme: string) {
